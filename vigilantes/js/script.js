@@ -123,7 +123,7 @@
       this.element = document.createElement("div");
       this.element.className = "foco-incendio";
       this.element.onclick = () => {
-        Pontos.pontuar(100);
+        Pontos.pontuar(10);
         this.element.remove();
         this.ok = true;
       }
@@ -154,7 +154,7 @@
         this.element.className = "devastacao-pequena"
         this.element.onclick = () => false
         Vidas.perdeVida(1)
-        Pontos.pontuar(-50);
+        Pontos.pontuar(-20);
       }
       return this.tempo > 0;
     }
@@ -165,7 +165,7 @@
       this.element = document.createElement("div");
       this.element.className = "caveira";
       this.element.onclick = () => {
-        Pontos.pontuar(150);
+        Pontos.pontuar(30);
         this.element.remove();
         this.ok = true;
       }
@@ -196,6 +196,7 @@
         this.element.className = "devastacao-grande"
         this.element.onclick = () => false
         Vidas.perdeVida(2)
+        Pontos.pontuar(-40)
       }
       return this.tempo > 0;
     }
