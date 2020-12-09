@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    class IntegerSet {
+        constructor() {
+            this.set = new Array(500).fill(false);
+        }
+        insere(d) {
+            this.set[d] = true;
+        }
+        remove(d) {
+            this.set[d] = false;
+        }
+        uniao(a) {
+            a.set.forEach((element, index) => {
+                if (element) {
+                    this.set[index] = true;
+                }
+            })
+        }
+        interseccao(a) {
+            a.set.forEach((element, index) => {
+                if (!(element && this.set[index])) {
+                    this.set[index] = false;
+                }
+            })
+        }
+        diferenca(a) {
+            a.set.forEach((element, index) => {
+                if (element) {
+                    this.set[index] = false;
+                }
+            })
+        }
+        toString() {
+            let string = "{ ";
+            this.set.forEach((element, index) => {
+                if (element)
+                    string += index+", ";
+            })
+            string += " } "
+            return string;
+        }
+    }
+
+    let x = new IntegerSet();
+    let y = new IntegerSet();
+    y.insere(2);
+    x.insere(0);
+    x.insere(1);
+    x.insere(2);
+    console.log(x.toString());
+    console.log(y.toString());
+    x.interseccao(y);
+    console.log(x.toString());
+    </script>
+</body>
+</html>

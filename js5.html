@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <p>Informe o raio: <input type="text" name="raio"> <input type="submit" value="confirmar"></p>
+        <p>Área do Círculo: <input type="text" name="area"></p>
+        <p>Circunferencia: <input type="text" name="circunferencia"></p>
+    </form>
+    <script>
+        const form = document.getElementById("form");
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            let raio = form.raio.value;
+            let area = Math.PI * raio * raio
+            let circunferencia = 2 * Math.PI * raio
+            form.area.value = area;
+            form.circunferencia.value = circunferencia
+        }
+    </script>
+</body>
+</html>

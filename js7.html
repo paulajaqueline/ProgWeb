@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let counter = 0;
+
+        const css = (tracker) => {
+            tracker.style.setProperty("position", "absolute");
+            tracker.style.setProperty("width", "10px");
+            tracker.style.setProperty("height", "10px");
+            tracker.style.setProperty("background-color", "#FF00FF");
+            tracker.style.setProperty("border-radius", "50px");
+        }
+
+        for (let i = 0; i < 8; i++) {
+            document.write(`<div id="track-${i}" class="tracker"></div>`);
+            css(document.getElementById(`track-${i}`));
+        }
+        
+        window.onmousemove = e => {
+            if (counter == 8) {
+                counter = 0;
+            }
+            const trackers = document.getElementsByClassName(`tracker`);
+                trackers[counter].style.setProperty("top", e.y + "px");
+                trackers[counter].style.setProperty("left", e.x + "px");
+            counter++;
+        }
+    </script>
+</body>
+</html>

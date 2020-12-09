@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let pontuacao = 0;
+        let ultimaPartida = 0;
+        const opcoes = { papel: 1, pedra: 2, tesoura: 3}
+        const arrayOpcoes = ["papel", "pedra", "tesoura"];
+
+        /* Criar regras do jogo */
+        const regrasJogo = (entrada, cpu) => {
+            // Retorno: 
+            // 0 - empate, 
+            // 1 - ganhou, 
+            // 2 - perdeu, 
+            if (entrada === cpu) {
+                return 0;
+            } else {
+                switch (entrada) {
+                    case opcoes.papel:
+                        if (cpu === opcoes.tesoura)
+                            return 2;
+                        return 1; 
+                    case opcoes.pedra:
+                        if (cpu === opcoes.papel)
+                            return 2;
+                        return 1
+                    case opcoes.tesoura:
+                        if (cpu === opcoes.pedra)
+                            return 2;
+                        return 1;
+                    default:
+                        return 2;
+                }
+            }
+        }
+
+
+        while (ultimaPartida !== 2) {
+            let x = parseInt(prompt("Escolha sua jogada\n"+
+                                "1 - Papel\n"+
+                                "2 - Pedra\n"+
+                                "3 - Tesoura\n"));
+            let cpu = Math.floor(Math.random() * 3 + 1);
+            let partida = regrasJogo(x, cpu);
+            console.log("O computador jogou "+arrayOpcoes[cpu - 1])
+            if (partida === 1) {
+                console.log("Você ganhou!")
+                pontuacao++;
+            }
+            if (partida === 0) {
+                console.log("Empatou!")
+            } if (partida === 2) {
+                console.log("Você perdeu! Sua pontuação foi de "+pontuacao)
+            }
+            ultimaPartida = partida;
+        }
+    </script>
+</body>
+</html>

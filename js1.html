@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        body > table {
+            width: 150px;
+            margin: 15px;
+        }
+        table > tbody > tr:first-child > td {
+            font-weight: bold;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS1</title>
+</head>
+<body>
+    <script>
+        for (let j = 1; j <= 10; j++) {
+            let string = ""
+            let table = document.createElement("table");
+            let stringRow = "<tr><td colspan='2'>Tabuada do "+j+"</tr>"
+            for (let i = 1; i <= 10; i++) {
+            stringRow += "<tr><td>"+j+"x"+i+"</td><td>"+j*i+"</td></tr>"
+        }
+        stringRow += ""
+        string += stringRow
+        table.setAttribute("border", "1");
+        table.style.textAlign = "center";
+        table.innerHTML = string;
+        document.body.appendChild(table);
+        }
+    </script>
+</body>
+</html>
