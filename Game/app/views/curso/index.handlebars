@@ -1,0 +1,17 @@
+<div class="container-md content">
+    <h1>Lista de Cursos</h1>
+    <div>
+    {{#each cursos}}
+        <div class="col-4 curso">
+            <h3>{{sigla}}</h3>
+            <h4>{{nome}}</h4>
+            <p>{{descricao}}</p>
+            <a href="/curso/read/{{id}}">Ver mais</a>
+        </div>
+    {{/each}}
+    </div>
+    <button id="novo-curso" class="btn btn-success">Novo Curso</button>
+    <script>
+        $("#novo-curso").click(() => window.location.href = "curso/create");
+    </script>
+</div>

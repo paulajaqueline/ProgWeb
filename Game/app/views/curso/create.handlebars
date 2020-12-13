@@ -1,0 +1,18 @@
+<div class="container-md content">
+    <h1>Novo curso</h1>
+    <form id="form_novo_curso" method="post" action="/curso/create">
+        <p>Sigla</p>
+        <input type="text" name="sigla" class="form-control col-3">
+        <div class="invalid-feedback d-block">{{showError errors 'sigla'}}</div>
+        <p>Nome</p>
+        <input type="text" name="nome" class="form-control col-3">
+        <div class="invalid-feedback d-block">{{showError errors 'nome'}}</div>
+        <p>Descricao</p>
+        <textarea name="descricao" class="form-control col-5"></textarea>
+        <h2 style="margin-top: 35px; margin-bottom: 30px">Área do Conhecimento</h2>
+        {{#each areas}}
+                <p><input type="radio" name="areaId" value={{id}}> &nbsp; {{nome}}</p>
+        {{/each}}
+        <p><button class="btn btn-success">Confirmar</button></p>
+    </form>
+</div>
